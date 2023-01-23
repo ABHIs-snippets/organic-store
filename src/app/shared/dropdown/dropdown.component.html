@@ -1,0 +1,15 @@
+<div class="relative" >
+  <button
+    class="rounded-full relative pb-2 pt-1 px-3 text-sm  font-medium {{type=='secondary'?'border-2':'bg-slate-100'}}"
+    (click)="isShow = !isShow"
+  >
+    {{ title }} &nbsp; &#8964;
+  </button>
+
+  <div
+    *ngIf="isShow"
+    class="absolute bg-slate-50 shadow-lg shadow-indigo-500/40 py-3 px-5 w-max mt-1 rounded-sm text-sm"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="flex bg-primary text-white px-16 py-1 justify-between text-sm">
+  <div><i class="fa fa-solid fa-phone"></i> +91 1234567890</div>
+  <div>Get 50% off on selected items &nbsp;&nbsp;| &nbsp;&nbsp;<a href="">Shop Now</a></div>
+  <div>English | India</div>
+</div>
+
+<div class="flex px-16 py-4 items-center ">
+  <div class="w-1/6">
+    LOGO
+  </div>
+  <nav class="w-3/6">
+    <ul class="flex ">
+      <li class="px-6">
+        <a routerLink="/category">Category</a>
+      </li>
+      <li class="px-6">Deals</li>
+      <li class="px-6">What's New</li>
+      <li class="px-6">Delivery</li>
+    </ul>
+  </nav>
+
+  <div class="flex w-2/6 justify-between items-center">
+    <div class="bg-slate-100 rounded-lg p-1 px-3 relative">
+      <input class="bg-transparent outline-none text-xs" (focus)="showSearch()" (blur)="hideSearch()" type="text" placeholder="Search Product">
+      <i class="fa fa-search" aria-hidden="true"></i>
+
+      <search-list-model *ngIf="showSearchBox" class="absolute w-max right-0 top-14"></search-list-model>
+    </div>
+      <primary-button> <i class="fa fa-user-o" aria-hidden="true"></i> &nbsp; Account</primary-button>
+      <primary-button> <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> &nbsp; Cart</primary-button>
+  </div>
+</div>

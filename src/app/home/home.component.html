@@ -1,0 +1,45 @@
+<app-banner></app-banner>
+<category-filter></category-filter>
+
+<!-- product list -->
+<div class="px-16 mt-3 mb-16">
+  <h2 class="text-3xl font-semibold pb-6" >Headphones For You!</h2>
+  <div class="flex flex-wrap -mx-2">
+    <product-card
+      class="w-1/4"
+      *ngFor="let d of [1, 2, 3, 4, 1, 1, 1, 1]"
+    ></product-card>
+  </div>
+<div class="h-0.5 bg-slate-200">
+  <div class="h-full bg-slate-400 w-1/3"></div>
+</div>
+</div>
+
+
+<!-- similar product list -->
+<div class="px-16 mt-3 mb-16">
+  <h2 class="text-3xl font-semibold pb-6" >Similar Items You Might Like</h2>
+  <div class="flex flex-wrap -mx-2">
+    <product-card
+      class="w-1/4"
+      *ngFor="let d of [1, 2, 3, 4]"
+    ></product-card>
+  </div>
+  <div class="h-0.5 bg-slate-200">
+    <div class="h-full bg-slate-400 w-1/3"></div>
+  </div>
+</div>
+
+<!-- Recent product list -->
+<div class="px-16 mt-3 mb-16">
+  <h2 class="text-3xl font-semibold pb-6" >Recently Viewed</h2>
+  <div class="flex flex-wrap -mx-2">
+    <product-card
+      class="w-1/4"
+      *ngFor="let d of [1, 2, 3, 4]"
+    ></product-card>
+  </div>
+  <div class="h-0.5 bg-slate-200">
+    <div class="h-full bg-slate-400 w-1/3"></div>
+  </div>
+</div>
