@@ -1,0 +1,66 @@
+<div class="px-16 mt-4">
+  <h2 class="text-3xl font-semibold pb-3 border-b-2 inline-block pr-8">
+    Your Cart!
+  </h2>
+  <div class="flex mt-8" *ngIf="cart.items.length else emptyCart ">
+    <div class="w-2/3">
+      <div
+        class="flex py-3 px-6 border-2 mb-2 rounded shadow-md"
+        *ngFor="let item of cart.items"
+      >
+        <div class="w-44">
+          <img
+            class="h-full object-cover"
+            src="/assets/images/product-2.jpg"
+            alt=""
+          />
+        </div>
+        <div>
+          <h3 class="text-xl mb-2 font-semibold" [routerLink]="['/',item.category,item.sku]">{{item.itemId.name}}</h3>
+          <p class="text-slate-700 mb-3">Color pink</p>
+          <rating></rating>
+        </div>
+        <quantity-btn class="ml-24" [(quantity)]="item.quantity" (quantityChange)="addToCart(item.itemId._id,item.quantity)"></quantity-btn>
+        <div class="ml-auto text-right">
+          <h4 class="font-semibold">${{item.basePrice}}</h4>
+          <p class="mb-4">Quantity: {{item.quantity}}</p>
+          <icon-button type="danger" (click)="deleteFromCart(item.itemId._id)">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </icon-button>
+        </div>
+      </div>
+    </div>
+    <div class="w-1/3 shadow-md rounded border-2 ml-8 py-4 px-8 h-max sticky top-8">
+      <h2 class="text-2xl font-semibold">Cart Summary</h2>
+
+      <div class="py-8 text-lg flex">
+        <div class="flex-1">
+          <p class="mb-2">Total Items in your Cart</p>
+          <p class="mb-2">Discount</p>
+          <p class="mb-2">You Saved</p>
+          <p class="mb-2">Total Amount</p>
+          <p class="mb-2">Delivery Charge</p>
+          <p class="mb-2">Amount Payable</p>
+        </div>
+        <div class="text-right flex-1">
+          <p class="mb-2">5</p>
+          <p class="mb-2">$30</p>
+          <p class="mb-2 text-green-800">$40</p>
+          <p class="mb-2">$400</p>
+          <p class="mb-2">$10</p>
+          <p class="mb-2 font-semibold text-2xl">${{cart.bill}}</p>
+        </div>
+      </div>
+      <p class="mb-8">Delivery within <span class="text-green-700"> 2 working days </span></p>
+      <primary-button size="large" [routerLink]="['/shipping']">checkout</primary-button>
+    </div>
+  </div>
+
+  <ng-template #emptyCart>
+    <p>
+      Your cart is Empty
+    </p>
+      <secondry-button class="mr-4" [primary]="false" [routerLink]="['/']">Show Now</secondry-button>
+  </ng-template>
+
+</div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'quantity-btn',
@@ -6,14 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./quantity-btn.component.scss']
 })
 export class QuantityBtnComponent {
-quantity = 1;
 
-increase(){
-  this.quantity++;
-}
+  @Input() quantity!: number;
+  @Output() quantityChange: EventEmitter<number> = new EventEmitter<number>();
 
-decrease(){
-  if(this.quantity>1)
-  this.quantity--;
-}
+  decrease() {
+    this.quantity--;
+    this.quantityChange.emit(this.quantity);
+  }
+
+  increase(){
+    this.quantity++;
+    this.quantityChange.emit(this.quantity);
+  }
 }

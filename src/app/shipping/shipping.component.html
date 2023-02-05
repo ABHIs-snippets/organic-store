@@ -1,0 +1,148 @@
+<div class="px-16 mt-4">
+  <!-- <h2 class="text-3xl font-semibold pb-3 border-b-2 inline-block pr-8">
+    Shipping detail
+  </h2> -->
+  <div class="flex mt-8 gap-3">
+    <div class="w-1/2">
+      <div class="shadow-md rounded border-2 py-4 px-8 h-max sticky top-8">
+        <h3 class="text-xl font-bold">Order Summary</h3>
+        <p class="text-sm text-gray-600 mb-4">
+          Check your item and select your shipping for better experience order
+          item.
+        </p>
+
+        <div class="rounded-md border-2 pb-3">
+          <div class="p-3 flex pb-0" *ngFor="let product of cart">
+            <div class="w-1/5 mr-3 rounded-sm h-16 border-2">
+              <img
+                class="w-full h-full object-contain"
+                src="/assets/images/product-1.jpg"
+                alt=""
+              />
+            </div>
+            <div class="w-3/5">
+              <h4 class="font-semibold" [routerLink]="['/',product.category,product.sku]">{{ product.itemId.name }}</h4>
+              <div>
+                <span> ${{ product.basePrice }} </span>
+              </div>
+            </div>
+            <div class="text-right ml-auto">
+              <p>* {{ product.quantity }}</p>
+              <p>${{ product.basePrice * product.quantity }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-md border-2 p-3 mt-4">
+          <h3 class="text-lg font-semibold inline-block border-b-2 pb-3 pr-4">
+            Addresses
+          </h3>
+          <div class="flex mt-4 flex-wrap -mx-4">
+            <div class="w-1/2 p-2" *ngFor="let address of addresses; index as i">
+              <div
+                class="bg-slate-800 rounded p-4 text-zinc-300 flex justify-between"
+              >
+                <div class="text-sm leading-relaxed">
+                  <div class="flex items-center mb-2">
+                    <input
+                      type="radio"
+                      class="mr-1"
+                      name="address"
+                      id=""
+                      [checked]="address.isShippingAddress"
+                      (change)="updateDefault(address._id)"
+                    />
+                    <label for="" class="font-semibold">
+                      {{ address.addressType }}
+                    </label>
+                  </div>
+                  <p>{{ address.name }}</p>
+                  <p>{{ address.pinCode }}, {{ address.locality }}</p>
+                  <p *ngIf="address.landmark">{{ address.landmark }}</p>
+                  <p>{{ address.areaAndStreet }}</p>
+                  <p>{{ address.city }}, {{ address.state }}</p>
+                  <p>{{ address.phone }}</p>
+                </div>
+                <div class="text-right flex flex-col justify-between">
+                  <div>
+                    <div *ngIf="address.isShippingAddress">
+                      <i class="fa fa-check" aria-hidden="true"></i> Shipping
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-1/2 shadow-md rounded border-2 py-4 px-8 h-max sticky top-8" *ngIf="bill">
+      <h3 class="text-xl font-semibold">Payment details</h3>
+      <div class="my-4 text-lg flex border-2 rounded p-2">
+        <div class="flex-1">
+          <p class="mb-2">Total Items</p>
+          <p class="mb-2">Discount</p>
+          <p class="mb-2">You Saved</p>
+          <p class="mb-2">Delivery Charge</p>
+          <p class="mb-2">Amount Payable</p>
+        </div>
+        <div class="text-right flex-1">
+          <p class="mb-2">${{bill.totalAmount}}</p>
+          <p class="mb-2">${{bill.totalDiscount}}</p>
+          <p class="mb-2">${{(bill.totalAmount - bill.payableAmount).toFixed(1)}}</p>
+          <p class="mb-2">{{bill.deliveryCharges}}</p>
+          <p class="mb-2 font-semibold text-2xl">${{bill.payableAmount}}</p>
+        </div>
+      </div>
+
+      <h3 class="text-xl font-semibold">Payment Mode</h3>
+      <form [formGroup]="paymentMethod">
+      <ul
+        class="my-4 items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+      >
+        <li
+          class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600"
+        >
+          <div class="flex items-center pl-3">
+            <input
+              type="radio"
+              value="COD"
+              name="list-radio"
+              formControlName="mode"
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label
+              for="horizontal-list-radio-license"
+              class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Cash on Delivery
+            </label>
+          </div>
+        </li>
+        <li
+          class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600"
+        >
+          <div class="flex items-center pl-3">
+            <input
+              type="radio"
+              value="paynow"
+              name="list-radio"
+              formControlName="mode"
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 outline-none dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label
+              for="horizontal-list-radio-id"
+              class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Pay now</label
+            >
+          </div>
+        </li>
+      </ul>
+      </form>
+      <div class="flex justify-center">
+        <primary-button size="large" (click)="checkOrder()" >Checkout</primary-button>
+      </div>
+    </div>
+  </div>
+</div>

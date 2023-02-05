@@ -1,0 +1,13 @@
+<div class="px-16 mt-4" >
+  <h2 class="text-3xl font-semibold pb-3 border-b-2 inline-block pr-8" >{{categoryName}}</h2>
+  <div class="flex flex-wrap -mx-2 mt-12" *ngIf="products.length; else noProduct">
+    <product-card
+      class="w-1/4"
+      *ngFor="let product of products" [product]="product"
+    ></product-card>
+  </div>
+  <ng-template #noProduct>
+   No products
+  </ng-template>
+
+</div>

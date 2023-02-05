@@ -1,0 +1,81 @@
+<div class="px-16 mt-4" *ngIf="orderDetail">
+  <!-- <h2 class="text-3xl font-semibold pb-3 border-b-2 inline-block pr-8">
+    Shipping detail
+  </h2> -->
+  <div class="flex mt-8 gap-3">
+    <div class="w-1/2">
+      <div class="shadow-md rounded border-2 py-4 px-8 h-max sticky top-8">
+        <h3 class="text-xl font-bold">Order Summary</h3>
+        <p class="text-sm text-gray-600 mb-4">
+         Your order
+        </p>
+
+        <div class="rounded-md border-2 pb-3">
+          <div class="p-3 flex pb-0" *ngFor="let product of orderItems">
+            <div class="w-1/5 mr-3 rounded-sm h-16 border-2">
+              <img
+                class="w-full h-full object-contain"
+                src="/assets/images/product-1.jpg"
+                alt=""
+              />
+            </div>
+            <div class="w-3/5">
+              <h4 class="font-semibold" [routerLink]="['/',product.category,product.sku]">{{ product.name }}</h4>
+              <div>
+                <span> ${{ product.pricing.basePrice }} </span>
+              </div>
+            </div>
+            <div class="text-right ml-auto">
+              <p>* {{ product.quantity }}</p>
+              <p>${{product.pricing.basePrice * product.quantity }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-md border-2 p-3 mt-4">
+          <h3 class="text-lg font-semibold inline-block border-b-2 pb-3 pr-4">
+            Address
+          </h3>
+          <div class="flex mt-4 flex-wrap -mx-4">
+            <div class="w-1/2 p-2" >
+              <div
+                class="bg-slate-800 rounded p-4 text-zinc-300 flex justify-between"
+              >
+                <div class="text-sm leading-relaxed">
+                  <p>{{ shippingAddress.name }}</p>
+                  <p>{{ shippingAddress.pinCode }}, {{ shippingAddress.locality }}</p>
+                  <p *ngIf="shippingAddress.landmark">{{ shippingAddress.landmark }}</p>
+                  <p>{{ shippingAddress.areaAndStreet }}</p>
+                  <p>{{ shippingAddress.city }}, {{ shippingAddress.state }}</p>
+                  <p>{{ shippingAddress.phone }}</p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-1/2 shadow-md rounded border-2 py-4 px-8 h-max sticky top-8" >
+      <h3 class="text-xl font-semibold">Payment details</h3>
+      <div class="my-4 text-lg flex border-2 rounded p-2">
+        <div class="flex-1">
+          <p class="mb-2">Total Items</p>
+          <p class="mb-2">Total Bill</p>
+          <p class="mb-2">Payment Status</p>
+          <p class="mb-2">Delivery Status</p>
+        </div>
+        <div class="text-right flex-1">
+<!-- {{orderDetail | json}} -->
+          <p class="mb-2">{{orderItems.length}}</p>
+          <p class="mb-2">${{orderDetail.bill}}</p>
+          <p class="mb-2">{{orderDetail.paymentStatus ? 'Done':'COD'}}</p>
+          <p class="mb-2 font-semibold text-2xl">{{orderDetail.status}}</p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

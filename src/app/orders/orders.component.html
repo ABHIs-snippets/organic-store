@@ -1,0 +1,40 @@
+<div class="px-16 mt-4">
+  <h3 class="text-3xl">Your Orders!</h3>
+  <div>
+    <table class="w-full mt-8 rounded-md overflow-hidden">
+      <thead class="text-left text-slate-500 font-light text-sm bg-slate-100">
+        <tr>
+          <th class="py-2 px-4">Items</th>
+          <th>Address</th>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th>Total Price</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody class="text-sm">
+        <tr class="border-b-2 cursor-pointer" *ngFor="let order of orders" [routerLink]="['/order-detail',order._id]">
+          <td class="py-4 px-4">
+            <div class="flex">
+              <div
+                class="w-8 h-8 rounded-full overflow-hidden shadow-md mr-2"
+                *ngFor="let im of [1, 1, 1]"
+              >
+                <img
+                  class="h-full w-full object-cover"
+                  src="/assets/images/product-1.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </td>
+          <td>{{addressStr(order.shippingAddress)}}...</td>
+          <td>{{order._id}}</td>
+          <td>Date</td>
+          <td>{{order.bill}}</td>
+          <td>{{order.status}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

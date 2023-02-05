@@ -1,0 +1,46 @@
+<div class="px-16 mt-4">
+  <h2 class="text-3xl font-semibold pb-3 border-b-2 inline-block pr-8">
+    Your Wishlist!
+  </h2>
+  <div class="flex mt-8" *ngIf="items.length else emptyWishlist ">
+    <div class="w-2/3">
+      <div
+        class="flex py-3 px-6 border-2 mb-2 rounded shadow-md "
+        *ngFor="let item of items"
+      >
+        <div class="w-44">
+          <img
+            class="h-full object-cover"
+            src="/assets/images/product-2.jpg"
+            alt=""
+          />
+        </div>
+        <div>
+          <h3 class="text-xl mb-2 font-semibold">{{item.itemId.name}}</h3>
+          <p class="text-slate-700 mb-3">Color pink</p>
+          <rating></rating>
+        </div>
+        <div class="ml-20">
+          <secondry-button class="mr-4" [primary]="false">Buy Now </secondry-button>
+          <secondry-button (click)="addToCart(item.itemId._id)">Add to Cart</secondry-button>
+        </div>
+        <!-- <quantity-btn class="ml-24" [(quantity)]="item.quantity" (quantityChange)="addToCart(item.itemId._id,item.quantity)"></quantity-btn> -->
+        <div class="ml-auto text-right">
+          <h4 class="font-semibold">${{item.itemId.pricing.basePrice}}</h4>
+          <icon-button type="danger" (click)="deleteFromWishlist(item.itemId._id)">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </icon-button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <ng-template #emptyWishlist>
+    <p>
+      Your Wishlist is Empty
+    </p>
+      <secondry-button class="mr-4" [primary]="false" [routerLink]="['/']">Show Now</secondry-button>
+  </ng-template>
+
+</div>

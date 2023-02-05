@@ -5,7 +5,7 @@
 </div>
 
 <div class="flex px-16 py-4 items-center ">
-  <div class="w-1/6">
+  <div class="w-1/6" [routerLink]="['/']">
     LOGO
   </div>
   <nav class="w-3/6">
@@ -14,8 +14,10 @@
         <a routerLink="/category">Category</a>
       </li>
       <li class="px-6">Deals</li>
-      <li class="px-6">What's New</li>
-      <li class="px-6">Delivery</li>
+      <li class="px-6">
+        <a routerLink="/wishlist">Wishlist</a>
+      </li>
+      <li class="px-6" routerLink="/order">Order</li>
     </ul>
   </nav>
 
@@ -26,7 +28,8 @@
 
       <search-list-model *ngIf="showSearchBox" class="absolute w-max right-0 top-14"></search-list-model>
     </div>
-      <primary-button> <i class="fa fa-user-o" aria-hidden="true"></i> &nbsp; Account</primary-button>
-      <primary-button> <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> &nbsp; Cart</primary-button>
+      <primary-button [routerLink]="['/profile']" *ngIf="isLogin"><i class="fa fa-user-o" aria-hidden="true"></i> &nbsp; Account</primary-button>
+      <primary-button [routerLink]="['/auth']" *ngIf="!isLogin"><i class="fa fa-user-o" aria-hidden="true"></i> &nbsp; Sign in</primary-button>
+      <primary-button [routerLink]="['/cart']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> &nbsp; Cart</primary-button>
   </div>
 </div>

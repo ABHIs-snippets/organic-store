@@ -1,0 +1,45 @@
+<div class="m-auto w-96 mt-16 bg-slate-50 p-4 rounded-md">
+  <h3 class="text-center text-2xl mb-8">Sign In</h3>
+  <form [formGroup]="signInPayload">
+    <div>
+      <label for="">
+        Email
+      </label>
+      <input
+      type="text"
+      formControlName="email"
+      placeholder="Enter your email"
+      [disabled]="isOTPSend"
+      class="p-2 border-2 outline-none w-full text-slate-500 focus:border-slate-400"
+      />
+    </div>
+
+    <div *ngIf="isOTPSend">
+      <label for="">
+        OTP
+      </label>
+      <input
+      type="text"
+      formControlName="otp"
+      placeholder="Enter your otp"
+      class="p-2 border-2 outline-none w-full text-slate-500 focus:border-slate-400"
+      />
+    </div>
+
+    <div class="flex justify-center py-4" *ngIf="!isOTPSend">
+      <icon-button (click)="sendOTP()">
+        &nbsp;
+        Send OTP
+        <i class="fa fa-send" aria-hidden="true"></i> &nbsp;
+      </icon-button>
+    </div>
+
+    <div class="flex justify-center py-4" *ngIf="isOTPSend">
+      <icon-button (click)="varify()">
+        &nbsp;
+        Varify
+        <i class="fa fa-send" aria-hidden="true"></i> &nbsp;
+      </icon-button>
+    </div>
+  </form>
+</div>
