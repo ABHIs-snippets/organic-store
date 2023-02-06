@@ -5,8 +5,9 @@
 </div>
 
 <div class="flex px-16 py-4 items-center ">
+
   <div class="w-1/6" [routerLink]="['/']">
-    LOGO
+    <img class="h-12 w-15 object-fit" src="/assets/images/logo1.png" alt="">
   </div>
   <nav class="w-3/6">
     <ul class="flex ">
@@ -22,9 +23,12 @@
   </nav>
 
   <div class="flex w-2/6 justify-between items-center">
-    <div class="bg-slate-100 rounded-lg p-1 px-3 relative">
-      <input class="bg-transparent outline-none text-xs" (focus)="showSearch()" (blur)="hideSearch()" type="text" placeholder="Search Product">
-      <i class="fa fa-search" aria-hidden="true"></i>
+    <div class="bg-slate-100 rounded-lg p-1 px-3 relative flex items-center">
+      <input class="bg-transparent outline-none text-xs" (focus)="showSearch()" (blur)="hideSearch()" type="text"
+        placeholder="Search Product">
+      <i class="material-symbols-outlined">
+        search
+      </i>
 
       <search-list-model *ngIf="showSearchBox" class="absolute w-max right-0 top-14"></search-list-model>
     </div>
