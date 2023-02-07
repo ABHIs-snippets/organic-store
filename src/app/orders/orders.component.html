@@ -18,11 +18,11 @@
             <div class="flex">
               <div
                 class="w-8 h-8 rounded-full overflow-hidden shadow-md mr-2"
-                *ngFor="let im of [1, 1, 1]"
+                *ngFor="let im of order.items"
               >
                 <img
-                  class="h-full w-full object-cover"
-                  src="/assets/images/product-1.jpg"
+                  class="h-full w-full object-contain"
+                  [src]="im.imageUrl"
                   alt=""
                 />
               </div>

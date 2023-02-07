@@ -3,27 +3,32 @@
 >
   <div class="w-full h-60">
     <img
-      class="w-full h-full object-cover"
-      src="/assets/images/product-2.jpg"
+      class="w-full h-full object-contain"
+      [src]="product.imageUrl"
       alt=""
     />
   </div>
-  <div class="pt-2 flex justify-between">
+  <div class="pt-3 flex justify-between">
     <div class="">
-      <h3 class="font-medium text-gray-800" [routerLink]="['/',product.category,product.sku]">{{ product.name }}</h3>
-      <p class="text-xs text-gray-700 py-1">{{ product.description }}</p>
-      <rating></rating>
+      <h3 class=" text-gray-600 text-sm font-semibold cursor-pointer" [routerLink]="['/',product.category,product.sku]">{{ product.name }}</h3>
+      <div class="line-clamp">
+        <p class="text-xs text-gray-700 ">{{ product.title }}</p>
+      </div>
+      <rating [rate]="product.avgRating" [rateCount]="product.ratingCount "></rating>
       <div class="pt-2">
         <secondry-button (click)="addToCart()">Add to cart</secondry-button>
       </div>
     </div>
     <div class="w-12 font-bold">
-      <sup>$</sup>{{ product.pricing.basePrice }}.<small>00</small>
+      <sup>Rs</sup>{{ product.pricing.basePrice }}.<small>00</small>
     </div>
   </div>
   <div class="absolute top-4 right-5">
     <icon-button (click)="addToWishlist()">
       <i class="fa fa-heart-o" aria-hidden="true"></i>
+      <span class="material-symbols-outlined">
+        favorite
+        </span>
     </icon-button>
   </div>
 </div>

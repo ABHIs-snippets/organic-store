@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../cart/cart.service';
 import { ProfileService } from '../profile/profile.service';
 import { ShippingService } from './shipping.service';
@@ -19,7 +20,8 @@ export class ShippingComponent implements OnInit {
     private _shipping: ShippingService,
     private route: ActivatedRoute,
     private fb:FormBuilder,
-    private router:Router
+    private router:Router,
+    private toast:ToastrService
   ) {}
 
   cart: any;
@@ -76,12 +78,17 @@ export class ShippingComponent implements OnInit {
   }
 
   checkOrder() {
-    if(this.paymentMethod.value.mode == 'COD')
-    this.cashOnDelivery();
+    if(!this.addresses.length){
+      this.toast.warning('Please enter your shipping address');
+    }
     else{
-      this._shipping.checkOutOrder().subscribe((res: any) => {
-        window.location.assign(res.url);
-      });
+      if(this.paymentMethod.value.mode == 'COD')
+      this.cashOnDelivery();
+      else{
+        this._shipping.checkOutOrder().subscribe((res: any) => {
+          window.location.assign(res.url);
+        });
+      }
     }
   }
 

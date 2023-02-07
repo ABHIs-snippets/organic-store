@@ -1,4 +1,4 @@
 <div class="px-16 flex" *ngIf="productDetail">
-  <image-section class="flex-1"></image-section>
+  <image-section class="flex-1" [mainImg]="productDetail.imageUrl" [subImg]="productDetail.images" ></image-section>
 <control-section class="flex-1" [productDetail]="productDetail" ></control-section>
 </div>

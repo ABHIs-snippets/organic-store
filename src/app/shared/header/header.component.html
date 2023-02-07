@@ -6,7 +6,7 @@
 
 <div class="flex px-16 py-4 items-center ">
 
-  <div class="w-1/6" [routerLink]="['/']">
+  <div class="w-1/6 cursor-pointer" [routerLink]="['/']">
     <img class="h-12 w-15 object-fit" src="/assets/images/logo1.png" alt="">
   </div>
   <nav class="w-3/6">
@@ -15,10 +15,10 @@
         <a routerLink="/category">Category</a>
       </li>
       <li class="px-6">Deals</li>
-      <li class="px-6">
+      <li class="px-6" *ngIf="isLogin">
         <a routerLink="/wishlist">Wishlist</a>
       </li>
-      <li class="px-6" routerLink="/order">Order</li>
+      <li class="px-6" routerLink="/order" *ngIf="isLogin">Order</li>
     </ul>
   </nav>
 
@@ -34,6 +34,6 @@
     </div>
       <primary-button [routerLink]="['/profile']" *ngIf="isLogin"><i class="fa fa-user-o" aria-hidden="true"></i> &nbsp; Account</primary-button>
       <primary-button [routerLink]="['/auth']" *ngIf="!isLogin"><i class="fa fa-user-o" aria-hidden="true"></i> &nbsp; Sign in</primary-button>
-      <primary-button [routerLink]="['/cart']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> &nbsp; Cart</primary-button>
+      <primary-button [routerLink]="['/cart']" *ngIf="isLogin"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> &nbsp; Cart</primary-button>
   </div>
 </div>

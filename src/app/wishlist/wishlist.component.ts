@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from '../cart/cart.service';
 import { WishlistService } from './wishlist.service';
 
@@ -9,7 +10,7 @@ import { WishlistService } from './wishlist.service';
 })
 export class WishlistComponent implements OnInit{
 
-  constructor(private _wishlist:WishlistService,private _cart:CartService){}
+  constructor(private _wishlist:WishlistService,private _cart:CartService, private router:Router){}
 
   ngOnInit(): void {
 this.getWishlist()
@@ -32,5 +33,11 @@ this.getWishlist()
   addToCart(_id:string){
     this._cart.addToCart({itemId:_id,quantity:1}).subscribe(console.log)
     }
+
+    buyNow(_id:string,quantity:number){
+      this._cart.addToCart({itemId:_id,quantity}).subscribe((res:any)=>{
+  this.router.navigate(['/shipping',res.itemId]);
+      })
+      }
 
 }

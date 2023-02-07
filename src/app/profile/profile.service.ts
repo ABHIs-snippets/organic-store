@@ -12,23 +12,23 @@ export class ProfileService {
   baseUrl = environment.baseUrl;
 
   get address(){
-    return this.http.get(this.baseUrl+'users/addresses');
+    return this.http.get(this.baseUrl+'addresses');
   }
 
   setDefaultAddress(_id:string){
-    return this.http.post(this.baseUrl+'users/addresses/shipping/'+_id,{_id});
+    return this.http.post(this.baseUrl+'addresses/shipping/'+_id,{_id});
   }
 
   deleteAddress(_id:string){
-    return this.http.delete(this.baseUrl+'users/addresses',{body:{_id}});
+    return this.http.delete(this.baseUrl+'addresses',{body:{_id}});
   }
 
   addAddress(payload:any){
-    return this.http.post(this.baseUrl+'users/addresses',payload);
+    return this.http.post(this.baseUrl+'addresses',payload);
   }
 
   editAddress(payload:any){
-    return this.http.patch(this.baseUrl+'users/addresses',payload);
+    return this.http.patch(this.baseUrl+'addresses',payload);
   }
 
   get getUser(){

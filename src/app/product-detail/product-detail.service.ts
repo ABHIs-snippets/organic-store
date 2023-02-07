@@ -12,6 +12,6 @@ export class ProductDetailService {
   baseUrl = environment.baseUrl;
 
   productDetail(sku:string){
-    return this.http.get(this.baseUrl+'products/id/'+sku);
+    return this.http.get(this.baseUrl+'products/by-sku/'+sku);
   }
 }
