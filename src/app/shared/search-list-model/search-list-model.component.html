@@ -1,12 +1,11 @@
-<div class="p-4 rounded-md shadow-lg bg-white">
-  <div>
-    <div class="flex items-center py-2 mx-2 border-b-2" *ngFor="let s of [1,2,3,4,5]">
-      <div class="w-14">
-        <img class="h-full object-cover" src="/assets/images/product-2.jpg" alt="">
+<div class="p-4 rounded-md shadow-lg bg-white w-96" *ngIf="products.length">
+    <div class="flex items-center py-2 mx-2 border-b-2" *ngFor="let product of products">
+      <div class="w-12 h-12">
+        <img class="h-full w-full object-contain" [src]="product.imageUrl" alt="">
       </div>
-      <h3 class="mx-3">Wire less Earbuds</h3>
-      <rating class="mx-3"></rating>
-      <h4 class="mx-2"><sup>$</sup>89.00</h4>
+      <div class="line-clamp text-xs ml-4">
+        <p>{{product.title}}</p>
+      </div>
     </div>
-  </div>
+
 </div>

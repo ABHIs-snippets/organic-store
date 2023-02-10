@@ -1,6 +1,10 @@
 <div class="flex bg-primary text-white px-16 py-1 justify-between text-sm max-md:hidden">
   <div><i class="fa fa-solid fa-phone"></i> +91 1234567890</div>
-  <div>Get 50% off on selected items &nbsp;&nbsp;| &nbsp;&nbsp;<a href="">Shop Now</a></div>
+  <div>
+    Get 50% off on selected items &nbsp;&nbsp;| &nbsp;&nbsp;<a href=""
+      >Shop Now</a
+    >
+  </div>
   <div>English | India</div>
 </div>
 
@@ -22,7 +26,7 @@
       <li class="px-6" *ngIf="isLogin">
         <a routerLink="/wishlist">Wishlist</a>
       </li>
-      <li class="px-6" routerLink="/order" *ngIf="isLogin">Order</li>
+      <li class="px-6 cursor-pointer" routerLink="/order" *ngIf="isLogin">Order</li>
     </ul>
   </nav>
 
@@ -33,12 +37,17 @@
         placeholder="Search Product" class="w-full">
       <img src="assets/svg/search.svg" width="18">
 
-      <search-list-model *ngIf="showSearchBox" class="absolute w-max right-0 top-14"></search-list-model>
+      <search-list-model
+        *ngIf="showSearchBox"
+        class="absolute w-max right-0 top-14 z-10"
+        [products]="searchProductList"
+      ></search-list-model>
     </div>
       <primary-button [routerLink]="['/profile']" *ngIf="isLogin" ><img src="assets/svg/account.svg" class="min-w-[25px]">&nbsp; <span class="lg:block hidden"> Account</span> </primary-button>
       <primary-button [routerLink]="['/auth']" *ngIf="!isLogin"><img src="assets/svg/account.svg" class="min-w-[25px]"> &nbsp; <span class="lg:block hidden">Sign in</span></primary-button>
       <primary-button [routerLink]="['/cart']" *ngIf="isLogin"><img src="assets/svg/cart3.svg" class="min-w-[20px]"> &nbsp; <span class="lg:block hidden">Cart</span></primary-button>
   </div>
+
 </div>
 
 <ul class="flex md:gap-0 xl:px-16 lg:px-12 md:px-8 px-8 pt-4 pb-4 lg:pt-0 justify-between shadow-md md:hidden">

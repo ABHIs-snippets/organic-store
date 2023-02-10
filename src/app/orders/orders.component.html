@@ -30,8 +30,8 @@
           </td>
           <td>{{addressStr(order.shippingAddress)}}...</td>
           <td>{{order._id}}</td>
-          <td>Date</td>
-          <td>{{order.bill}}</td>
+          <td>{{convertDate(order.createdAt)}}</td>
+          <td>{{order.bill}} Rs.</td>
           <td>{{order.status}}</td>
         </tr>
       </tbody>

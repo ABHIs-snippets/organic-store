@@ -12,6 +12,8 @@ import { InfoCardComponent } from './info-card/info-card.component';
 import { SearchListModelComponent } from './search-list-model/search-list-model.component';
 import { RatingComponent } from './rating/rating.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReviewComponent } from './review/review.component';
 
 
 const components = [
@@ -25,15 +27,18 @@ const components = [
   QuantityBtnComponent,
   InfoCardComponent,
   SearchListModelComponent,
-  RatingComponent
+  RatingComponent,
+  ReviewComponent
 ]
 
 @NgModule({
   declarations: components,
-  exports:components,
+  exports:[...components],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

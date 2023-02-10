@@ -5,17 +5,13 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductDetailService {
+export class SearchService {
 
   constructor(private http:HttpClient) { }
 
   baseUrl = environment.baseUrl;
 
-  productDetail(sku:string){
-    return this.http.get(this.baseUrl+'products/by-sku/'+sku);
-  }
-
-  reviews(id:string){
-    return this.http.get(this.baseUrl+'ratings/'+id);
+  search(keyword:string){
+    return this.http.get(this.baseUrl+'products/search?keyword='+keyword);
   }
 }

@@ -10,6 +10,7 @@ export class CartComponent implements OnInit {
   constructor(private _cart: CartService) {}
 
   cart: any;
+  bill: any;
 
   ngOnInit(): void {
     this.fetchCart();
@@ -18,6 +19,9 @@ export class CartComponent implements OnInit {
   fetchCart() {
     this._cart.cart.subscribe((res: any) => {
       this.cart = res.cart;
+    });
+    this._cart.cartBill.subscribe((res: any) => {
+      this.bill = res.bill;
     });
   }
 
@@ -28,6 +32,8 @@ export class CartComponent implements OnInit {
   }
 
   addToCart(_id:string,quantity:number){
-    this._cart.addToCart({itemId:_id,quantity}).subscribe(console.log)
+    this._cart.addToCart({itemId:_id,quantity}).subscribe((res:any)=>{
+      this.fetchCart();
+    })
   }
 }

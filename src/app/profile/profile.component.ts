@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   addresses: any[] = [];
 
   addressEditForm!:FormGroup;
+  shippingAddressId!:string;
 
   showAddressForm = false;
   isEdit = false;
@@ -83,6 +84,7 @@ this._profile.getUser.subscribe(console.log)
   getAddress() {
     this._profile.address.subscribe((res: any) => {
       this.addresses = res.addresses;
+      this.shippingAddressId = res.shippingAddressId;
     });
   }
 
