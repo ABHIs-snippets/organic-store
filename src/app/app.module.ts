@@ -11,12 +11,15 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorHandlerInterceptor } from './shared/interceptors/error-handler.interceptor';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { CommonModule } from '@angular/common';
+import { ReviewComponent } from './shared/review/review.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     SharedModule,
@@ -24,7 +27,11 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgxUiLoaderModule
+    NgxUiLoaderModule,
+
+  ],
+  entryComponents: [
+    ReviewComponent
   ],
   providers: [
     {
@@ -36,7 +43,8 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorHandlerInterceptor,
       multi: true
-   }
+   },
+
   ],
   bootstrap: [AppComponent]
 })

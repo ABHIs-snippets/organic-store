@@ -6,13 +6,15 @@ import { ProductDetailComponent } from './product-detail.component';
 import { ImageSectionComponent } from './image-section/image-section.component';
 import { ControlSectionComponent } from './control-section/control-section.component';
 import { SharedModule } from '../shared/shared.module';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 
 @NgModule({
   declarations: [
     ProductDetailComponent,
     ImageSectionComponent,
-    ControlSectionComponent
+    ControlSectionComponent,
+    ReviewsComponent
   ],
   imports: [
     CommonModule,

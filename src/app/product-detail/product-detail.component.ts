@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductDetailService } from './product-detail.service';
 
@@ -11,6 +11,7 @@ export class ProductDetailComponent implements OnInit{
 
   constructor(private _productListService:ProductDetailService, private route:ActivatedRoute){}
 
+
   sku:string = '';
 
   productDetail:any;
@@ -22,6 +23,7 @@ this._productListService.productDetail(this.sku).subscribe((res:any)=>{
   this.productDetail = res.product;
 })
 }
+
 
 
 

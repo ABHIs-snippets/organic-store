@@ -19,6 +19,6 @@ export class ShippingService {
   }
 
   fetchProductFromCart(id: string) {
-    return this.http.get(this.baseUrl + 'carts/' + id);
+    return this.http.get(this.baseUrl + 'carts/items/' + id);
   }
 }

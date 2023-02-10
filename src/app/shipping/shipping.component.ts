@@ -13,6 +13,7 @@ import { ShippingService } from './shipping.service';
 })
 export class ShippingComponent implements OnInit {
   singleProductId!: string | null;
+  shippingAddressId!: string;
 
   constructor(
     private _cart: CartService,
@@ -68,6 +69,7 @@ export class ShippingComponent implements OnInit {
   getAddress() {
     this._profile.address.subscribe((res: any) => {
       this.addresses = res.addresses;
+      this.shippingAddressId = res.shippingAddressId;
     });
   }
 

@@ -1,0 +1,50 @@
+<div>
+
+  <div *ngIf="!isShowForm">
+    <secondry-button class="mr-4" [primary]="false" (click)="isShowForm=true;">Rate product</secondry-button>
+  </div>
+
+    <form [formGroup]="reviewForm" *ngIf="isShowForm" class="bg-slate-50 p-4 rounded-md">
+      <div class="flex mt-4 flex-wrap -mx-2">
+        <div class="w-1/2 p-2">
+          <input
+            type="text"
+            placeholder="Title"
+            formControlName="title"
+            class="p-2 border-2 outline-none w-full text-slate-500 focus:border-slate-400"
+          />
+        </div>
+        <div class="w-1/2 p-2">
+          <input
+            type="text"
+            placeholder="User Name"
+            formControlName="userName"
+            class="p-2 border-2 outline-none w-full text-slate-500 focus:border-slate-400"
+          />
+        </div>
+        <div class="w-full p-2">
+          <textarea
+            placeholder="Description"
+            formControlName="description"
+            class="p-2 border-2 outline-none w-full text-slate-500 focus:border-slate-400"
+          ></textarea>
+        </div>
+
+        <div class="w-1/2 p-2">
+          <input
+            type="text"
+            placeholder="ratingValue"
+            formControlName="ratingValue"
+            class="p-2 border-2 outline-none w-full text-slate-500 focus:border-slate-400"
+          />
+        </div>
+
+      </div>
+      <div class="flex justify-end">
+        <primary-button (click)="isShowForm = false;">
+          cancel</primary-button
+        >
+        <primary-button (click)="saveReview()"> Save</primary-button>
+      </div>
+    </form>
+</div>

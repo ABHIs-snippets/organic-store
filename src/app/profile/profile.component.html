@@ -50,7 +50,7 @@
                 class="mr-1"
                 name="address"
                 id=""
-                [checked]="address.isShippingAddress"
+                [checked]="address._id == shippingAddressId"
                 (change)="updateDefault(address._id)"
               />
               <label for="" class="font-semibold">
@@ -66,7 +66,7 @@
           </div>
           <div class="text-right flex flex-col justify-between">
             <div>
-              <div *ngIf="address.isShippingAddress">
+              <div *ngIf="address._id == shippingAddressId">
                 <i class="fa fa-check" aria-hidden="true"></i> Default
               </div>
             </div>

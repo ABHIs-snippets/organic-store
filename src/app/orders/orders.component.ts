@@ -26,4 +26,8 @@ this.getOrders()
   addressStr(add:Object){
 return Object.values(add).join(' ').slice(0,30);
   }
+
+  convertDate(createAt:string){
+return new Date(createAt).toLocaleDateString();
+  }
 }

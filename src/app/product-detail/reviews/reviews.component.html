@@ -1,0 +1,29 @@
+<div class="flex justify-center mb-4">
+
+  <app-review [productId]="id" ></app-review>
+</div>
+<div class="border shadow-sm p-4 rounded ">
+  <div>
+
+    <h3 class="text-lg font-semibold">Reviews</h3>
+  </div>
+
+  <hr/>
+
+<div>
+  <div *ngFor="let review of reviews" class=" py-2 text-sm">
+    <div class="flex mb-2">
+      <div class="px-2 rounded text-white bg-green-700 mr-3  leading-[20px]">{{review.ratingValue}}
+        <i class="material-symbols-outlined text-sm ">star</i>
+      </div>
+      <h4 class="font-semibold">{{review.title}}</h4>
+      <div class="ml-auto">
+        {{convertDate(review.createdAt)}}
+      </div>
+    </div>
+    <p class="text-gray-600">{{review.description}}</p>
+    <p class="text-right text-gray-600">- {{review.userName}}</p>
+  </div>
+</div>
+
+</div>
