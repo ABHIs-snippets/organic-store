@@ -1,15 +1,19 @@
-<div class="flex bg-primary text-white px-16 py-1 justify-between text-sm">
+<div class="flex bg-primary text-white px-16 py-1 justify-between text-sm max-md:hidden">
   <div><i class="fa fa-solid fa-phone"></i> +91 1234567890</div>
   <div>Get 50% off on selected items &nbsp;&nbsp;| &nbsp;&nbsp;<a href="">Shop Now</a></div>
   <div>English | India</div>
 </div>
 
-<div class="flex px-16 py-4 items-center ">
+<div class="sticky top-0 backdrop-blur-md z-50">
+<div class="flex gap-3 md:gap-0 xl:px-16 lg:px-12 md:px-8 px-8 pt-2 lg:pt-0 items-center">
 
-  <div class="w-1/6 cursor-pointer" [routerLink]="['/']">
-    <img class="h-12 w-15 object-fit" src="/assets/images/logo1.png" alt="">
+  <div class="w-1/6 cursor-pointer hidden lg:block" [routerLink]="['/']">
+    <img class="h-m-12 w-m-15  object-fit" src="/assets/images/logo1.png" alt="">
   </div>
-  <nav class="w-3/6">
+    <div class="cursor-pointer block lg:hidden" [routerLink]="['/']">
+      <img class="h-m-12 w-m-15  object-fit" src="/assets/images/logo.svg" alt="" class="w-[35px]">
+    </div>
+  <nav class="w-2/6 md:w-3/6 hidden md:block">
     <ul class="flex ">
       <li class="px-6">
         <a routerLink="/category">Category</a>
@@ -22,18 +26,30 @@
     </ul>
   </nav>
 
-  <div class="flex w-2/6 justify-between items-center">
-    <div class="bg-slate-100 rounded-lg p-1 px-3 relative flex items-center">
+  <div class="flex gap-2 sm:w-3/6 flex-grow justify-between items-center">
+
+    <div class="bg-slate-100 rounded-lg p-1 px-3 relative flex items-center w-[-moz-available]">
       <input class="bg-transparent outline-none text-xs" (focus)="showSearch()" (blur)="hideSearch()" type="text"
-        placeholder="Search Product">
-      <i class="material-symbols-outlined">
-        search
-      </i>
+        placeholder="Search Product" class="w-full">
+      <img src="assets/svg/search.svg" width="18">
 
       <search-list-model *ngIf="showSearchBox" class="absolute w-max right-0 top-14"></search-list-model>
     </div>
-      <primary-button [routerLink]="['/profile']" *ngIf="isLogin"><i class="fa fa-user-o" aria-hidden="true"></i> &nbsp; Account</primary-button>
-      <primary-button [routerLink]="['/auth']" *ngIf="!isLogin"><i class="fa fa-user-o" aria-hidden="true"></i> &nbsp; Sign in</primary-button>
-      <primary-button [routerLink]="['/cart']" *ngIf="isLogin"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> &nbsp; Cart</primary-button>
+      <primary-button [routerLink]="['/profile']" *ngIf="isLogin" ><img src="assets/svg/account.svg" class="min-w-[25px]">&nbsp; <span class="lg:block hidden"> Account</span> </primary-button>
+      <primary-button [routerLink]="['/auth']" *ngIf="!isLogin"><img src="assets/svg/account.svg" class="min-w-[25px]"> &nbsp; <span class="lg:block hidden">Sign in</span></primary-button>
+      <primary-button [routerLink]="['/cart']" *ngIf="isLogin"><img src="assets/svg/cart3.svg" class="min-w-[20px]"> &nbsp; <span class="lg:block hidden">Cart</span></primary-button>
   </div>
+</div>
+
+<ul class="flex md:gap-0 xl:px-16 lg:px-12 md:px-8 px-8 pt-4 pb-4 lg:pt-0 justify-between shadow-md md:hidden">
+  <li class="px-2 sm:px-6">
+    <a routerLink="/category">Category</a>
+  </li>
+  <li class="px-2 sm:px-6">Deals</li>
+  <li class="px-2 sm:px-6" *ngIf="isLogin">
+    <a routerLink="/wishlist">Wishlist</a>
+  </li>
+  <li class="px-2 sm:px-6" routerLink="/order" *ngIf="isLogin">Order</li>
+</ul>
+
 </div>

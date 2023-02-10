@@ -1,13 +1,13 @@
-<div class="relative">
+<div class="relative ">
   <button
     class="rounded-full relative pb-1 pt-1 px-3 text-sm font-medium flex items-center {{type=='secondary'?'border-2':'bg-slate-100'}}"
     (click)="isShow = !isShow">
-    {{ title }} &nbsp; <i class="material-symbols-outlined">
-      expand_more
-    </i>
+    {{ title }} &nbsp; <svg class="fill-current h-4 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+    </svg>
   </button>
 
-  <div *ngIf="isShow" class="absolute bg-slate-50 shadow-lg py-3 px-5 w-max mt-1 rounded-sm text-sm">
+  <div *ngIf="isShow" class="absolute bg-slate-50 shadow-lg py-3 px-5 w-max mt-1 rounded-sm text-sm z-10">
     <ul>Product 1</ul>
     <ul>Product 2</ul>
     <ul>Product 3</ul>
