@@ -1,7 +1,7 @@
 <div
-  class="mb-8 mx-2 px-3 pb-3 text-sm rounded-md overflow-hidden relative shadow-md" [routerLink]="['/',product.category,product.sku]"
+  class="mx-2 px-3 pb-3 text-sm rounded-md overflow-hidden relative shadow-md" [routerLink]="['/',product.category,product.sku]"
 >
-  <div class="w-full h-60" [routerLink]="['/',product.category,product.sku]">
+  <div class="w-full h-[100px] lg:w-full lg:h-full" [routerLink]="['/',product.category,product.sku]">
     <img
       class="w-full h-full object-contain"
       [src]="product.imageUrl"
@@ -9,13 +9,16 @@
     />
   </div>
   <div class="pt-3 flex justify-between">
-    <div class="">
-      <h3 class=" text-gray-600 text-sm font-semibold cursor-pointer" [routerLink]="['/',product.category,product.sku]">{{ product.name }}</h3>
-      <div class="line-clamp">
+    <div >
+    <div class="line-clamp">
+    <h3 class=" text-gray-600 text-sm font-semibold cursor-pointer " [routerLink]="['/',product.category,product.sku]">{{ product.name }}</h3>
+    </div>
+      
+      <div class="line-clamp hidden md:block">
         <p class="text-xs text-gray-700 ">{{ product.title }}</p>
       </div>
-      <rating [rate]="product.avgRating" [rateCount]="product.ratingCount "></rating>
-      <div class="pt-2">
+      <rating class="hidden md:block" [rate]="product.avgRating" [rateCount]="product.ratingCount "></rating>
+      <div class="pt-2 hidden md:block">
         <secondry-button (click)="addToCart()">Add to cart</secondry-button>
       </div>
     </div>

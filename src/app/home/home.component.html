@@ -2,11 +2,14 @@
 <!-- <category-filter></category-filter> -->
 
 <!-- product list -->
-<div class="px-8 mb-4 pt-4" *ngIf="!!topRatedProducts">
+<div class="px-8 mb-4 pt-4 lg:px-16 lg:mt-3 lg:mb-16" *ngIf="!!topRatedProducts">
   <h2 class="text-3xl font-semibold pb-6" >Top Rated!</h2>
-  <div class="flex flex-wrap -mx-2">
+  <div class="flex flex-nowrap gap-4 overflow-x-auto custom-scroll">
     <product-card
-      class="w-1/4"
+      class="w-[200px] min-w-[200px]"
+      *ngFor="let product of topRatedProducts" [product]="product"
+    ></product-card><product-card
+      class="w-[200px] min-w-[200px]"
       *ngFor="let product of topRatedProducts" [product]="product"
     ></product-card>
   </div>
@@ -14,11 +17,15 @@
 
 
 <!-- similar product list -->
-<div class="px-16 mt-3 mb-16" *ngIf="latestProducts">
+<div class="px-8 mb-4 pt-4 lg:px-16 lg:mt-3 lg:mb-16" *ngIf="latestProducts">
   <h2 class="text-3xl font-semibold pb-6" >Latest Products</h2>
-  <div class="flex flex-wrap -mx-2">
+  <div class="flex flex-nowrap gap-4 overflow-x-auto custom-scroll">
     <product-card
-      class="w-1/4"
+      class="w-[200px] min-w-[200px]"
+      *ngFor="let product of latestProducts" [product]="product"
+    ></product-card>
+    <product-card
+      class="w-[200px] min-w-[200px]"
       *ngFor="let product of latestProducts" [product]="product"
     ></product-card>
   </div>
@@ -28,11 +35,15 @@
 </div>
 
 <!-- Recent product list -->
-<div class="px-16 mt-3 mb-16" *ngIf="latestProducts">
+<div class="px-8 mb-4 pt-4 lg:px-16 lg:mt-3 lg:mb-16" *ngIf="latestProducts">
   <h2 class="text-3xl font-semibold pb-6" >Recently Viewed</h2>
-  <div class="flex flex-wrap -mx-2">
+  <div class="flex flex-nowrap gap-4 overflow-x-auto custom-scroll">
     <product-card
-      class="w-1/4"
+      class="w-[200px] min-w-[200px]"
+      *ngFor="let product of latestProducts" [product]="product"
+    ></product-card> 
+    <product-card
+      class="w-[200px] min-w-[200px]"
       *ngFor="let product of latestProducts" [product]="product"
     ></product-card>
   </div>
