@@ -8,14 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ImageSectionComponent implements OnInit{
 
 
-  @Input('mainImg') mainImg!:string;
+  @Input('mainImg') mainImg!:any;
   @Input('subImg') subImg!:any[];
 
   ngOnInit(): void {
-    this.subImg.unshift({imageUrl:this.mainImg});
+    // this.subImg.unshift({imageUrl:this.mainImg});
+    console.log(this.mainImg,this.subImg)
   }
 
   changeImg(i:number){
-    this.mainImg = this.subImg[i].imageUrl;
+    this.mainImg = this.subImg[i];
   }
 }

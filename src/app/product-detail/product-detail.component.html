@@ -1,5 +1,5 @@
-<div class="px-16 flex" *ngIf="productDetail">
-  <image-section class="flex-1" [mainImg]="productDetail.imageUrl" [subImg]="productDetail.images" ></image-section>
+<div class="xl:px-16 lg:px-12 md:px-8 flex flex-wrap md:flex-nowrap" *ngIf="productDetail">
+  <image-section class="flex-1" [mainImg]="productDetail?.images[0]" [subImg]="productDetail.images" ></image-section>
 <control-section class="flex-1" [productDetail]="productDetail" ></control-section>
 
 </div>

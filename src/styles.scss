@@ -27,3 +27,55 @@ display: -webkit-box;
 -webkit-box-orient: vertical;
 overflow: hidden;
 }
+
+.custom-Scroll::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.6);
+	background-color: #ffff;
+}
+
+.custom-Scroll::-webkit-scrollbar
+{
+	width: 6px;
+	// background-color: #F5F5F5;
+	background-color: #ffff;
+}
+
+
+.custom-Scroll::-webkit-scrollbar-thumb
+{
+	// background-color: #F5F5F5;
+	// background-image: -webkit-linear-gradient(90deg,
+	//                                           rgba(0, 0, 0, 1) 0%,
+	// 										  rgba(0, 0, 0, 1) 25%,
+	// 										  transparent 100%,
+	// 										  rgba(0, 0, 0, 1) 75%,
+	// 										  transparent)
+	background-color: #7fa828;
+}
+
+.custom-Scroll-x::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.6);
+	background-color: #ffff;
+}
+
+.custom-Scroll-x::-webkit-scrollbar
+{
+	height: 6px;
+	// background-color: #F5F5F5;
+	background-color: #ffff;
+}
+
+
+.custom-Scroll-x::-webkit-scrollbar-thumb
+{
+	// background-color: #F5F5F5;
+	// background-image: -webkit-linear-gradient(90deg,
+	//                                           rgba(0, 0, 0, 1) 0%,
+	// 										  rgba(0, 0, 0, 1) 25%,
+	// 										  transparent 100%,
+	// 										  rgba(0, 0, 0, 1) 75%,
+	// 										  transparent)
+	background-color: #7fa828;
+}

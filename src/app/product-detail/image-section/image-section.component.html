@@ -1,15 +1,16 @@
-<div class="py-4 pr-4 flex sticky top-4">
-  <div class="flex flex-col -my-1 w-1/4 ">
+<div class="py-4 pr-4 flex lg:sticky top-[79.9px] flex-wrap-reverse lg:flex-nowrap">
+  <div class="flex gap-2 lg:gap-0 pt-2 pb-2 lg:flex-col -my-0 md:-my-1 max-w-[100vw] w-full md:w-[420px] lg:w-1/4 lg:h-[520px] overflow-x-auto lg:overflow-y-auto custom-Scroll-x md:custom-Scroll">
     <div
-      class="flex-1 p-1 shadow-md m-1 w-32 h-32"
+      class="flex-1 p-1 shadow-md m-1 md:w-32 md:h-32 h-[100px] min-w-[100px]"
       *ngFor="let im of subImg; index as i"
       (click)="changeImg(i)"
     >
+    <!-- {{im | json}} -->
       <img class="w-full h-full object-contain" [src]="im.imageUrl" alt="" />
     </div>
   </div>
-  <div class="rounded-md overflow-hidden shadow-md p-20 w-[520px] h-[520px]" id="main-img">
-    <img class="w-full h-full object-contain " [src]="mainImg" alt="" />
+  <div class="rounded-md overflow-hidden shadow-md p-20 w-full h-[100vw] max-w-[98vw] md:w-[420px] md:h-[420px] lg:w-[520px] lg:h-[520px]" id="main-img">
+    <img class="w-full h-full object-contain " [src]="mainImg.imageUrl" alt="" />
   </div>
 
 </div>
